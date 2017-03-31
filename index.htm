@@ -1,15 +1,50 @@
 <!DOCTYPE html>
+<!---->
+<!--
+	Virtual Pan TT
+	Created by:	Nicholas Paynter
+	Assignment:	Web Applications INFO-0311
+	Lecturer:	Dr Andre Mayers
+	Date:		23-March-2017
+	Purpose:	To design an application and interface that allows a user to play an instrument 
+				(The High Tenor Steel Pan)
+
+	Design:		The page is layed out whereby all the notes of the selected pan are at both the left and 
+				right sides of the screen with the pan in the center.
+				When a user clicks a button, the appropriate sound is heard and an animation is played 
+				showing which part of the pan is being sounded.
+				Careful attention was given to the timing of the sound of the note and the time the pan 
+				stick reaches the designated area of the pan.
+				The Hich C Tenor pan and its button controls are loded upon document load. refer to script file.
+				The animations used are gif images created in Synfig Studio (open source 2D animation)
+				( http://www.synfig.org/ )
+				The sound files were extracted from Digital Pan ( http://www.digitalpanapp.com/m/site/index.html )
+					
+	Logic:		The names of the sound files are the names of the individual notes prefixed by the type
+				of steel pan Example: HT (high tenor) | BFlat4 (note) filename = htBFlat4.mp3
+				The names of the gif files  are the names of the individual notes prefixed by the type
+				of steel pan Example: HT (high tenor) | BFlat4 (note) filename = htBFlat4.gif
+				The buttons are given an ID  with the names of the individual notes prefixed by the type
+				of steel pan Example: HT (high tenor) | BFlat4 (note) <button id="HTBFlat4">
+
+				When a button is clicked, the id of the button passes to a function that changes
+				the source of the main image to <buttonid>.gif and playes the sound that is equal to 
+				the <buttonid>.mp3
+-->
 <html lang="en">
 	<head>
 		<title>Virtual-SteelPan TT</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--allows some flexibility between screen sizes-->
   		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 		<script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="js/jquery-3.1.1.js"></script>
+		<!--using the jquery library and the css bootstrap-->
 		<script type="text/javascript" src="js/script.js"></script>
+		<!--the script controling the functions of the buttons are written in this script-->
 	</head>
-	<body>
+	<body background="image\background.jpg">
 		<header>
 			<!--The navigation bar is styled by both the navbar and navbar-inverse classes-->
 			<nav class="navbar navbar-inverse">
@@ -25,22 +60,27 @@
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Choose Pan<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a id="tenorImage" href="#"">High C Tennor SteelPan</a></li>
+								<!--controls the drop down menu to choose the individual pan-->
+								<li><a id="tenorImage" href="#">High C Tennor SteelPan</a></li>
 								<li><a id="bassImage" href="#">Tenor Bass SteelDrum</a></li>
+								<!--the id's are passed onto jquery functions that switch the images and the buttons-->
 							</ul>
 						</li>
 						<li class="dropdown">
 					    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 							<span class="glyphicon glyphicon-music"></span> Sheet Music<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a id="songone" href="#">Play Song 1</a></li>
-								<li><a id="songtwo" href="#">Play Song 2</a></li>
+								<!--controls the drop down menu to choose the individual songs-->
+								<li><a id="songone" href="#">Happy Birthday Song</a></li>
+								<li><a id="songtwo" href="#">You Are My Sunshine</a></li>
+								<!--the id's are passed onto jquery functions (playsong) that plays the notes coded for that song-->
 							</ul>
 						</li>
 				    </ul>
 				</div>
 			</nav>	
 		</header>	
+		<!--each column of buttons are in col-1 and the image of the pan in the center are in col-6 width of the page-->
 		<main class="row container-fluid">
 			<div class="col-md-1"></div>
 			<div class="col-md-1">
@@ -49,29 +89,33 @@
 				</div>
 				<div>					
 					<ul>
-						<li><button class="btn pull-right" id="TBA2">A2</button></li>
-						<li><button class="btn pull-right" id="TBA3">A3</button></li>
+						<!--left side, 1st column buttons-->
 						<li><button class="btn pull-right" id="HTA4">A4</button></li>
-						<li><button class="btn pull-right" id="HTA5">A5</button></li>
-						<li><button class="btn pull-right" id="TBB2">B2</button></li>
-						<li><button class="btn pull-right" id="TBB3">B3</button></li>
+						<li><button class="btn pull-right" id="HTBFlat4">BFlat4</button></li>
 						<li><button class="btn pull-right" id="HTB4">B4</button></li>
+						<li><button class="btn pull-right" id="HTC4">C4</button></li>
+						<li><button class="btn pull-right" id="HTCSharp4">CSharp4</button></li>
+						<li><button class="btn pull-right" id="HTD4">D4</button></li>
+						<li><button class="btn pull-right" id="HTEFlat4">EFlat4</button></li>
+						<li><button class="btn pull-right" id="HTE4">E4</button></li>
+						<li><button class="btn pull-right" id="HTF4">F4</button></li>
+						<li><button class="btn pull-right" id="HTFSharp4">FSharp4</button></li>
+						<li><button class="btn pull-right" id="HTG4">G4</button></li>
+						<li><button class="btn pull-right" id="HTGSharp4">GSharp4</button></li>
+						<li><button class="btn pull-right" id="HTA5">A5</button></li>
+						<li><button class="btn pull-right" id="HTBFlat5">BFlat5</button></li>
 						<li><button class="btn pull-right" id="HTB5">B5</button></li>
+						<li><button class="btn pull-right" id="TBA2">A2</button></li>
+						<li><button class="btn pull-right" id="TBA3">A3</button></li>						
+						<li><button class="btn pull-right" id="TBB2">B2</button></li>
+						<li><button class="btn pull-right" id="TBB3">B3</button></li>						
 						<li><button class="btn pull-right" id="TBBb2">Bflat2</button></li>
 						<li><button class="btn pull-right" id="TBBb3">Bflat3</button></li>
 						<li><button class="btn pull-right" id="TBC3">C3</button></li>
-						<li><button class="btn pull-right" id="TBC4">C4</button></li>
-						<li><button class="btn pull-right" id="HTC4">C4</button></li>
-						<li><button class="btn pull-right" id="HTC5">C5</button></li>
+						<li><button class="btn pull-right" id="TBC4">C4</button></li>						
 						<li><button class="btn pull-right" id="TBCSharp3">CSharp3</button></li>
-						<li><button class="btn pull-right" id="TBCSharp4">CSharp4</button></li>
-						<li><button class="btn pull-right" id="HTCSharp4">CSharp4</button></li>
-						<li><button class="btn pull-right" id="HTCSharp5">CSharp5</button></li>
-						<li><button class="btn pull-right" id="HTD4">D4</button></li>
-						<li><button class="btn pull-right" id="HTD5">D5</button></li>
-						<li><button class="btn pull-right" id="HTD6">D6</button></li>
-						<li><button class="btn pull-right" id="HTE4">E4</button></li>
-						<li><button class="btn pull-right" id="HTE5">E5</button></li>
+						<li><button class="btn pull-right" id="TBCSharp4">CSharp4</button></li>	
+						<!--left side, 1st column buttons-->
 					</ul>
 				</div>
 			</div>
@@ -81,33 +125,37 @@
 				</div>
 				<div>					
 					<ul>
+						<!--left side, second column buttons-->
+						<li><button class="btn pull-right" id="HTC5">C5</button></li>
+						<li><button class="btn pull-right" id="HTCSharp5">CSharp5</button></li>
+						<li><button class="btn pull-right" id="HTD5">D5</button></li>
+						<li><button class="btn pull-right" id="HTEFlat5">EFlat5</button></li>
+						<li><button class="btn pull-right" id="HTE5">E5</button></li>
+						<li><button class="btn pull-right" id="HTF5">F5</button></li>
+						<li><button class="btn pull-right" id="HTFSharp5">FSharp5</button></li>
+						<li><button class="btn pull-right" id="HTG5">G5</button></li>
+						<li><button class="btn pull-right" id="HTGSharp5">GSharp5</button></li>
+						<li><button class="btn pull-right" id="HTC6">C6</button></li>
+						<li><button class="btn pull-right" id="HTCSharp6">CSharp6</button></li>	
+						<li><button class="btn pull-right" id="HTD6">D6</button></li>
+						<li><button class="btn pull-right" id="HTEFlat6">EFlat6</button></li>
+						<li><button class="btn pull-right" id="HTE6">E6</button></li>
 						<li><button class="btn pull-right" id="TBCSharp4">CSharp4</button></li>
 						<li><button class="btn pull-right" id="TBD3">D3</button></li>
 						<li><button class="btn pull-right" id="TBD4">D4</button></li>
 						<li><button class="btn pull-right" id="TBDSharp3">DSharp3</button></li>
-						<li><button class="btn pull-right" id="HTE5">E5</button></li>
-						<li><button class="btn pull-right" id="HTE6">E6</button></li>
-						<li><button class="btn pull-right" id="HTEFlat4">EFlat4</button></li>
-						<li><button class="btn pull-right" id="TBF3">F3</button></li>
-						<li><button class="btn pull-right" id="HTF4">F4</button></li>
-						<li><button class="btn pull-right" id="HTF5">F5</button></li>
-						<li><button class="btn pull-right" id="HTF6">F6</button></li>
-						<li><button class="btn pull-right" id="TBFSharp3">FSharp3</button></li>
-						<li><button class="btn pull-right" id="HTFSharp4">FSharp4</button></li>
-						<li><button class="btn pull-right" id="HTFSharp5">FSharp5</button></li>
-						<li><button class="btn pull-right" id="HTFSharp6">FSharp6</button></li>
+						<li><button class="btn pull-right" id="TBF3">F3</button></li>						
+						<li><button class="btn pull-right" id="TBFSharp3">FSharp3</button></li>						
 						<li><button class="btn pull-right" id="TBG2">G2</button></li>
-						<li><button class="btn pull-right" id="TBG3">G3</button></li>
-						<li><button class="btn pull-right" id="HTG4">G4</button></li>
-						<li><button class="btn pull-right" id="HTG5">G5</button></li>
+						<li><button class="btn pull-right" id="TBG3">G3</button></li>						
 						<li><button class="btn pull-right" id="TBGSharp2">GSharp2</button></li>
 						<li><button class="btn pull-right" id="TBGSharp3">GSharp3</button></li>
-						<li><button class="btn pull-right" id="HTGSharp4">GSharp4</button></li>
-						<li><button class="btn pull-right" id="HTGSharp5">GSharp5</button></li>						
+						<!--left side, second column buttons-->											
 					</ul>
 				</div>
 			</div>
 			<div class="col-md-6">
+				<!--main image on screen changes when buttons are clicked and notes are played-->
 				<img class="img-responsive"  id="panImage" src="#">
 			</div>
 			<div class="col-md-1">
@@ -116,29 +164,32 @@
 				</div>
 				<div>					
 					<ul>
-						<li><button class="btn pull-right" id="TBA2">A2</button></li>
-						<li><button class="btn pull-right" id="TBA3">A3</button></li>
-						<li><button class="btn pull-right" id="HTA4">A4</button></li>
-						<li><button class="btn pull-right" id="HTA5">A5</button></li>
-						<li><button class="btn pull-right" id="TBB2">B2</button></li>
-						<li><button class="btn pull-right" id="TBB3">B3</button></li>
-						<li><button class="btn pull-right" id="HTB4">B4</button></li>
-						<li><button class="btn pull-right" id="HTB5">B5</button></li>
-						<li><button class="btn pull-right" id="TBBb2">Bflat2</button></li>
-						<li><button class="btn pull-right" id="TBBb3">Bflat3</button></li>
-						<li><button class="btn pull-right" id="TBC3">C3</button></li>
-						<li><button class="btn pull-right" id="TBC4">C4</button></li>
-						<li><button class="btn pull-right" id="HTC4">C4</button></li>
+						<!--right side, first column buttons-->
 						<li><button class="btn pull-right" id="HTC5">C5</button></li>
-						<li><button class="btn pull-right" id="TBCSharp3">CSharp3</button></li>
-						<li><button class="btn pull-right" id="TBCSharp4">CSharp4</button></li>
-						<li><button class="btn pull-right" id="HTCSharp4">CSharp4</button></li>
 						<li><button class="btn pull-right" id="HTCSharp5">CSharp5</button></li>
-						<li><button class="btn pull-right" id="HTD4">D4</button></li>
 						<li><button class="btn pull-right" id="HTD5">D5</button></li>
-						<li><button class="btn pull-right" id="HTD6">D6</button></li>
-						<li><button class="btn pull-right" id="HTE4">E4</button></li>
+						<li><button class="btn pull-right" id="HTEFlat5">EFlat5</button></li>
 						<li><button class="btn pull-right" id="HTE5">E5</button></li>
+						<li><button class="btn pull-right" id="HTF5">F5</button></li>
+						<li><button class="btn pull-right" id="HTFSharp5">FSharp5</button></li>
+						<li><button class="btn pull-right" id="HTG5">G5</button></li>
+						<li><button class="btn pull-right" id="HTGSharp5">GSharp5</button></li>
+						<li><button class="btn pull-right" id="HTC6">C6</button></li>
+						<li><button class="btn pull-right" id="HTCSharp6">CSharp6</button></li>	
+						<li><button class="btn pull-right" id="HTD6">D6</button></li>
+						<li><button class="btn pull-right" id="HTEFlat6">EFlat6</button></li>
+						<li><button class="btn pull-right" id="HTE6">E6</button></li>
+						<li><button class="btn pull-right" id="TBCSharp4">CSharp4</button></li>
+						<li><button class="btn pull-right" id="TBD3">D3</button></li>
+						<li><button class="btn pull-right" id="TBD4">D4</button></li>
+						<li><button class="btn pull-right" id="TBDSharp3">DSharp3</button></li>
+						<li><button class="btn pull-right" id="TBF3">F3</button></li>						
+						<li><button class="btn pull-right" id="TBFSharp3">FSharp3</button></li>						
+						<li><button class="btn pull-right" id="TBG2">G2</button></li>
+						<li><button class="btn pull-right" id="TBG3">G3</button></li>						
+						<li><button class="btn pull-right" id="TBGSharp2">GSharp2</button></li>
+						<li><button class="btn pull-right" id="TBGSharp3">GSharp3</button></li>	
+						<!--right side, first column buttons-->										
 					</ul>
 				</div>
 			</div>
@@ -148,29 +199,33 @@
 				</div>
 				<div>					
 					<ul>
-						<li><button class="btn pull-right" id="TBCSharp4">CSharp4</button></li>
-						<li><button class="btn pull-right" id="TBD3">D3</button></li>
-						<li><button class="btn pull-right" id="TBD4">D4</button></li>
-						<li><button class="btn pull-right" id="TBDSharp3">DSharp3</button></li>
-						<li><button class="btn pull-right" id="HTE5">E5</button></li>
-						<li><button class="btn pull-right" id="HTE6">E6</button></li>
+						<!--right side, second column buttons-->
+						<li><button class="btn pull-right" id="HTA4">A4</button></li>
+						<li><button class="btn pull-right" id="HTBFlat4">BFlat4</button></li>
+						<li><button class="btn pull-right" id="HTB4">B4</button></li>
+						<li><button class="btn pull-right" id="HTC4">C4</button></li>
+						<li><button class="btn pull-right" id="HTCSharp4">CSharp4</button></li>
+						<li><button class="btn pull-right" id="HTD4">D4</button></li>
 						<li><button class="btn pull-right" id="HTEFlat4">EFlat4</button></li>
-						<li><button class="btn pull-right" id="TBF3">F3</button></li>
+						<li><button class="btn pull-right" id="HTE4">E4</button></li>
 						<li><button class="btn pull-right" id="HTF4">F4</button></li>
-						<li><button class="btn pull-right" id="HTF5">F5</button></li>
-						<li><button class="btn pull-right" id="HTF6">F6</button></li>
-						<li><button class="btn pull-right" id="TBFSharp3">FSharp3</button></li>
 						<li><button class="btn pull-right" id="HTFSharp4">FSharp4</button></li>
-						<li><button class="btn pull-right" id="HTFSharp5">FSharp5</button></li>
-						<li><button class="btn pull-right" id="HTFSharp6">FSharp6</button></li>
-						<li><button class="btn pull-right" id="TBG2">G2</button></li>
-						<li><button class="btn pull-right" id="TBG3">G3</button></li>
 						<li><button class="btn pull-right" id="HTG4">G4</button></li>
-						<li><button class="btn pull-right" id="HTG5">G5</button></li>
-						<li><button class="btn pull-right" id="TBGSharp2">GSharp2</button></li>
-						<li><button class="btn pull-right" id="TBGSharp3">GSharp3</button></li>
 						<li><button class="btn pull-right" id="HTGSharp4">GSharp4</button></li>
-						<li><button class="btn pull-right" id="HTGSharp5">GSharp5</button></li>						
+						<li><button class="btn pull-right" id="HTA5">A5</button></li>
+						<li><button class="btn pull-right" id="HTBFlat5">BFlat5</button></li>
+						<li><button class="btn pull-right" id="HTB5">B5</button></li>
+						<li><button class="btn pull-right" id="TBA2">A2</button></li>
+						<li><button class="btn pull-right" id="TBA3">A3</button></li>						
+						<li><button class="btn pull-right" id="TBB2">B2</button></li>
+						<li><button class="btn pull-right" id="TBB3">B3</button></li>						
+						<li><button class="btn pull-right" id="TBBb2">Bflat2</button></li>
+						<li><button class="btn pull-right" id="TBBb3">Bflat3</button></li>
+						<li><button class="btn pull-right" id="TBC3">C3</button></li>
+						<li><button class="btn pull-right" id="TBC4">C4</button></li>						
+						<li><button class="btn pull-right" id="TBCSharp3">CSharp3</button></li>
+						<li><button class="btn pull-right" id="TBCSharp4">CSharp4</button></li>	
+						<!--right side, second column buttons-->
 					</ul>
 				</div>
 			</div>
@@ -201,10 +256,10 @@ E6.mp3
 EFlat4.mp3
 F4.mp3
 F5.mp3
-F6.mp3
+GSharp6.mp3
 FSharp4.mp3
 FSharp5.mp3
-FSharp6.mp3
+CSharp6.mp3
 G4.mp3
 G5.mp3
 GSharp4.mp3
