@@ -66,7 +66,7 @@ $(document).ready(function(){
 		$('[id^=TB]').parent().show(); 
 	});
 	
-	$(songone).click(function(){					
+	/*$(songone).click(function(){					
 		setTimeout(function(){
 			playSong("htG5.mp3");
 		}, 0);
@@ -97,5 +97,57 @@ $(document).ready(function(){
 		setTimeout(function(){
 			playSong("htC4.mp3");
 		}, 7000);				    
+	});*/
+	$(songone).click(function(){					
+		setTimeout(function(){
+			playSong("htG4.mp3");
+		}, 0);
+		setTimeout(function(){
+			playSong("htG4.mp3");
+		}, 500);
+		setTimeout(function(){
+			playSong("htA4.mp3");
+		}, 1000);
+		setTimeout(function(){
+			playSong("htG4.mp3");
+		}, 1500);
+		setTimeout(function(){
+			playSong("htC4.mp3");
+		}, 2000);
+		setTimeout(function(){
+			playSong("htB4.mp3");
+		}, 2500);
+		// pause
+			playSong("htG4.mp3");
+		}, 3500);
+		setTimeout(function(){
+			playSong("htG4.mp3");
+		}, 4000);
+		setTimeout(function(){
+			playSong("htA4.mp3");
+		}, 4500);
+		setTimeout(function(){
+			playSong("htG4.mp3");
+		}, 5000);
+		setTimeout(function(){
+			playSong("htC4.mp3");
+		}, 5500);
+		setTimeout(function(){
+			playSong("htB4.mp3");
+		}, 6000);
+		// pause
+		/*
+		setTimeout(function(){
+			playSong("htD4.mp3");
+		}, 4500);					
+		setTimeout(function(){
+			playSong("htE4.mp3");
+		}, 5000);
+		setTimeout(function(){
+			playSong("htC4.mp3");
+		}, 5500);
+		setTimeout(function(){
+			playSong("htC4.mp3");
+		}, 7000);*/				    
 	});
 });
