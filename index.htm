@@ -1,100 +1,180 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<title>Virtual-SteelPan TT</title>
-		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<!--<script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+		<script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="js/jquery-3.1.1.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
 	</head>
 	<body>
 		<header>
-			<nav>
-				<div>
-					<a href="#"><img src="image\logo.jpg" alt="steelpan logo"></a>
-				</div>
-				<div>
-					<div>
-						<ul>
-							<li><a href="#">Choose Pan</a>							
-								<ul>
-									<li><a id="tenorImage" href="#">High C Tennor SteelPan</a></li>
-					            	<li><a id="bassImage" href="#">Tenor Bass SteelDrum</a></li>					                
-					            </ul>
-							</li>
-						</ul>	
-					</div>
-					<div>
-						<ul>	
-							<li><a href="#">Select Song</a>							
-								<ul>
-					            	<li><a href="#">Mary Had A Little Mind</a></li>
-					                <li><a href="#">Humpty Dumpty</a></li>
-					            </ul>
-							</li>
-						</ul>
-					</div>	
+			<!--The navigation bar is styled by both the navbar and navbar-inverse classes-->
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="col-md-1"></div>
+				    <div class="navbar-header col-md-1">
+				      <a class="navbar-left" href="#"><img src="image\logo-1.png" alt="steelpan logo"></a>
+				    </div>
+				    <div class="col-md-1"></div>
+				    <!--Including the nav, navbar-nav and navbar-right classes styles the navigation bar appropriately-->	    
+				    <ul class="nav navbar-nav">
+						<li class="active"><a href="index.htm">Welcome</a></li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Choose Pan<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a id="tenorImage" href="#"">High C Tennor SteelPan</a></li>
+								<li><a id="bassImage" href="#">Tenor Bass SteelDrum</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+					    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							<span class="glyphicon glyphicon-music"></span> Sheet Music<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a id="songone" href="#">Play Song 1</a></li>
+								<li><a id="songtwo" href="#">Play Song 2</a></li>
+							</ul>
+						</li>
+				    </ul>
 				</div>
 			</nav>	
 		</header>	
-		<main>
-			<div>
+		<main class="row container-fluid">
+			<div class="col-md-1"></div>
+			<div class="col-md-1">
 				<div>
-					Select Music Note
+					Music Notes
 				</div>
 				<div>					
 					<ul>
-						<li><button id="TBA2">A2</button></li>
-						<li><button id="TBA3">A3</button></li>
-						<li><button id="HTA4">A4</button></li>
-						<li><button id="HTA5">A5</button></li>
-						<li><button id="TBB2">B2</button></li>
-						<li><button id="TBB3">B3</button></li>
-						<li><button id="HTB4">B4</button></li>
-						<li><button id="HTB5">B5</button></li>
-						<li><button id="TBBb2">Bflat2</button></li>
-						<li><button id="TBBb3">Bflat3</button></li>
-						<li><button id="TBC3">C3</button></li>
-						<li><button id="TBC4">C4</button></li>
-						<li><button id="HTC4">C4</button></li>
-						<li><button id="HTC5">C5</button></li>
-						<li><button id="TBCSharp3">CSharp3</button></li>
-						<li><button id="TBCSharp4">CSharp4</button></li>
-						<li><button id="HTCSharp4">CSharp4</button></li>
-						<li><button id="HTCSharp5">CSharp5</button></li>
-						<li><button id="TBD3">D3</button></li>
-						<li><button id="TBD4">D4</button></li>
-						<li><button id="HTD4">D4</button></li>
-						<li><button id="HTD5">D5</button></li>
-						<li><button id="HTD6">D6</button></li>
-						<li><button id="TBDSharp3">DSharp3</button></li>
-						<li><button id="TBE3">E3</button></li>
-						<li><button id="HTE4">E4</button></li>
-						<li><button id="HTE5">E5</button></li>
-						<li><button id="HTE6">E6</button></li>
-						<li><button id="HTEFlat4">EFlat4</button></li>
-						<li><button id="TBF3">F3</button></li>
-						<li><button id="HTF4">F4</button></li>
-						<li><button id="HTF5">F5</button></li>
-						<li><button id="HTF6">F6</button></li>
-						<li><button id="TBFSharp3">FSharp3</button></li>
-						<li><button id="HTFSharp4">FSharp4</button></li>
-						<li><button id="HTFSharp5">FSharp5</button></li>
-						<li><button id="HTFSharp6">FSharp6</button></li>
-						<li><button id="TBG2">G2</button></li>
-						<li><button id="TBG3">G3</button></li>
-						<li><button id="HTG4">G4</button></li>
-						<li><button id="HTG5">G5</button></li>
-						<li><button id="TBGSharp2">GSharp2</button></li>
-						<li><button id="TBGSharp3">GSharp3</button></li>
-						<li><button id="HTGSharp4">GSharp4</button></li>
-						<li><button id="HTGSharp5">GSharp5</button></li>						
+						<li><button class="btn pull-right" id="TBA2">A2</button></li>
+						<li><button class="btn pull-right" id="TBA3">A3</button></li>
+						<li><button class="btn pull-right" id="HTA4">A4</button></li>
+						<li><button class="btn pull-right" id="HTA5">A5</button></li>
+						<li><button class="btn pull-right" id="TBB2">B2</button></li>
+						<li><button class="btn pull-right" id="TBB3">B3</button></li>
+						<li><button class="btn pull-right" id="HTB4">B4</button></li>
+						<li><button class="btn pull-right" id="HTB5">B5</button></li>
+						<li><button class="btn pull-right" id="TBBb2">Bflat2</button></li>
+						<li><button class="btn pull-right" id="TBBb3">Bflat3</button></li>
+						<li><button class="btn pull-right" id="TBC3">C3</button></li>
+						<li><button class="btn pull-right" id="TBC4">C4</button></li>
+						<li><button class="btn pull-right" id="HTC4">C4</button></li>
+						<li><button class="btn pull-right" id="HTC5">C5</button></li>
+						<li><button class="btn pull-right" id="TBCSharp3">CSharp3</button></li>
+						<li><button class="btn pull-right" id="TBCSharp4">CSharp4</button></li>
+						<li><button class="btn pull-right" id="HTCSharp4">CSharp4</button></li>
+						<li><button class="btn pull-right" id="HTCSharp5">CSharp5</button></li>
+						<li><button class="btn pull-right" id="HTD4">D4</button></li>
+						<li><button class="btn pull-right" id="HTD5">D5</button></li>
+						<li><button class="btn pull-right" id="HTD6">D6</button></li>
+						<li><button class="btn pull-right" id="HTE4">E4</button></li>
+						<li><button class="btn pull-right" id="HTE5">E5</button></li>
 					</ul>
 				</div>
 			</div>
-			<div>
-				<img id="panImage" src="#">
+			<div class="col-md-1">
+				<div>
+					Music Notes
+				</div>
+				<div>					
+					<ul>
+						<li><button class="btn pull-right" id="TBCSharp4">CSharp4</button></li>
+						<li><button class="btn pull-right" id="TBD3">D3</button></li>
+						<li><button class="btn pull-right" id="TBD4">D4</button></li>
+						<li><button class="btn pull-right" id="TBDSharp3">DSharp3</button></li>
+						<li><button class="btn pull-right" id="HTE5">E5</button></li>
+						<li><button class="btn pull-right" id="HTE6">E6</button></li>
+						<li><button class="btn pull-right" id="HTEFlat4">EFlat4</button></li>
+						<li><button class="btn pull-right" id="TBF3">F3</button></li>
+						<li><button class="btn pull-right" id="HTF4">F4</button></li>
+						<li><button class="btn pull-right" id="HTF5">F5</button></li>
+						<li><button class="btn pull-right" id="HTF6">F6</button></li>
+						<li><button class="btn pull-right" id="TBFSharp3">FSharp3</button></li>
+						<li><button class="btn pull-right" id="HTFSharp4">FSharp4</button></li>
+						<li><button class="btn pull-right" id="HTFSharp5">FSharp5</button></li>
+						<li><button class="btn pull-right" id="HTFSharp6">FSharp6</button></li>
+						<li><button class="btn pull-right" id="TBG2">G2</button></li>
+						<li><button class="btn pull-right" id="TBG3">G3</button></li>
+						<li><button class="btn pull-right" id="HTG4">G4</button></li>
+						<li><button class="btn pull-right" id="HTG5">G5</button></li>
+						<li><button class="btn pull-right" id="TBGSharp2">GSharp2</button></li>
+						<li><button class="btn pull-right" id="TBGSharp3">GSharp3</button></li>
+						<li><button class="btn pull-right" id="HTGSharp4">GSharp4</button></li>
+						<li><button class="btn pull-right" id="HTGSharp5">GSharp5</button></li>						
+					</ul>
+				</div>
 			</div>
+			<div class="col-md-6">
+				<img class="img-responsive"  id="panImage" src="#">
+			</div>
+			<div class="col-md-1">
+				<div>
+					Music Notes
+				</div>
+				<div>					
+					<ul>
+						<li><button class="btn pull-right" id="TBA2">A2</button></li>
+						<li><button class="btn pull-right" id="TBA3">A3</button></li>
+						<li><button class="btn pull-right" id="HTA4">A4</button></li>
+						<li><button class="btn pull-right" id="HTA5">A5</button></li>
+						<li><button class="btn pull-right" id="TBB2">B2</button></li>
+						<li><button class="btn pull-right" id="TBB3">B3</button></li>
+						<li><button class="btn pull-right" id="HTB4">B4</button></li>
+						<li><button class="btn pull-right" id="HTB5">B5</button></li>
+						<li><button class="btn pull-right" id="TBBb2">Bflat2</button></li>
+						<li><button class="btn pull-right" id="TBBb3">Bflat3</button></li>
+						<li><button class="btn pull-right" id="TBC3">C3</button></li>
+						<li><button class="btn pull-right" id="TBC4">C4</button></li>
+						<li><button class="btn pull-right" id="HTC4">C4</button></li>
+						<li><button class="btn pull-right" id="HTC5">C5</button></li>
+						<li><button class="btn pull-right" id="TBCSharp3">CSharp3</button></li>
+						<li><button class="btn pull-right" id="TBCSharp4">CSharp4</button></li>
+						<li><button class="btn pull-right" id="HTCSharp4">CSharp4</button></li>
+						<li><button class="btn pull-right" id="HTCSharp5">CSharp5</button></li>
+						<li><button class="btn pull-right" id="HTD4">D4</button></li>
+						<li><button class="btn pull-right" id="HTD5">D5</button></li>
+						<li><button class="btn pull-right" id="HTD6">D6</button></li>
+						<li><button class="btn pull-right" id="HTE4">E4</button></li>
+						<li><button class="btn pull-right" id="HTE5">E5</button></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-1">
+				<div>
+					Music Notes
+				</div>
+				<div>					
+					<ul>
+						<li><button class="btn pull-right" id="TBCSharp4">CSharp4</button></li>
+						<li><button class="btn pull-right" id="TBD3">D3</button></li>
+						<li><button class="btn pull-right" id="TBD4">D4</button></li>
+						<li><button class="btn pull-right" id="TBDSharp3">DSharp3</button></li>
+						<li><button class="btn pull-right" id="HTE5">E5</button></li>
+						<li><button class="btn pull-right" id="HTE6">E6</button></li>
+						<li><button class="btn pull-right" id="HTEFlat4">EFlat4</button></li>
+						<li><button class="btn pull-right" id="TBF3">F3</button></li>
+						<li><button class="btn pull-right" id="HTF4">F4</button></li>
+						<li><button class="btn pull-right" id="HTF5">F5</button></li>
+						<li><button class="btn pull-right" id="HTF6">F6</button></li>
+						<li><button class="btn pull-right" id="TBFSharp3">FSharp3</button></li>
+						<li><button class="btn pull-right" id="HTFSharp4">FSharp4</button></li>
+						<li><button class="btn pull-right" id="HTFSharp5">FSharp5</button></li>
+						<li><button class="btn pull-right" id="HTFSharp6">FSharp6</button></li>
+						<li><button class="btn pull-right" id="TBG2">G2</button></li>
+						<li><button class="btn pull-right" id="TBG3">G3</button></li>
+						<li><button class="btn pull-right" id="HTG4">G4</button></li>
+						<li><button class="btn pull-right" id="HTG5">G5</button></li>
+						<li><button class="btn pull-right" id="TBGSharp2">GSharp2</button></li>
+						<li><button class="btn pull-right" id="TBGSharp3">GSharp3</button></li>
+						<li><button class="btn pull-right" id="HTGSharp4">GSharp4</button></li>
+						<li><button class="btn pull-right" id="HTGSharp5">GSharp5</button></li>						
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-1"></div>
 		</main>
 		<footer>
 		</footer>
