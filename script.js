@@ -16,141 +16,125 @@
 // load high c tenor pan still image
 // load high c tenor pan buttons
 $(document).ready(function(){
-	$("#panImage").attr("src","image/hightenorpan.jpg");
-	$('[id^=TB]').parent().hide(); 
+	$("#imageofpan").attr("src","image/hightenorpan.jpg");
+	$("#musicnote5").hide(); 
+	$("#musicnote6").hide(); 
+	$("#musicnote7").hide(); 
+	$("#musicnote8").hide(); 
 });
 
-//create audio element to play sound
-//play the specific audio file which is detemined by the buttons id. 
-//The audio files and the buttons id are the same, except for the file extension whcih is mp3.
 $(document).ready(function(){
-	//create a new audio element
-	var panSound = document.createElement('audio');
-	//if any button is clicked
-	$('button').click(function(){
-	//save button id into string variable named audioname		
-		var audioname = ($(this).attr('id'));
-		//set src attribute to audio element as audio/"audioname".mp3
-		panSound.setAttribute('src', "audio/"+audioname+".mp3"/*'audio/HTA4.mp3'*/);
+	//if button is clicked
+	// declare variables to represent each audio element by Id
+	var panaudio1 = document.getElementById('audio1');
+	var panaudio2 = document.getElementById('audio2');
+	var panaudio3 = document.getElementById('audio3');
+	var panaudio4 = document.getElementById('audio4');
+	var panaudio5 = document.getElementById('audio5');
+	var panaudio6 = document.getElementById('audio6');
+	var panaudio7 = document.getElementById('audio7');
+	var panaudio8 = document.getElementById('audio8');
+
+	$("#musicnote1").click(function(){
+		//alert("some text");
+		$("#imageofpan").attr("src","image/htA4.gif");
+		panaudio1.play();
+		// the two lines below stops the audio from playing. 
+		// this has to be programmed under a separate button
+		// panaudio1.pause();
+		// panaudio1.currentTime = 0;
+	});
+
+		$('#musicnote2').click(function(){
+		//var panaudio2 = document.getElementByID('audio2')
 		//play particular sound
-		panSound.play();
-		//set image #panImage src to image/"audioname".gif
-		$("#panImage").attr("src","image/"+audioname+".gif");
+		panaudio2.play();
+		//set image #imageofpan src to image/"whatever".gif
+		$("#imageofpan").attr("src","image/htA4.gif");
+		//play particular gif
+	});
+		$('#musicnote3').click(function(){
+		//var panaudio3 = document.getElementByID('audio3')
+		//play particular sound
+		panaudio3.play();
+		//set image #imageofpan src to image/"whatever".gif
+		$("#imageofpan").attr("src","image/htA4.gif");
+		//play particular gif
+	});
+		$('#musicnote4').click(function(){
+		//var panaudio4 = document.getElementByID('audio4')
+		//play particular sound
+		panaudio4.play();
+		//set image #imageofpan src to image/"whatever".gif
+		$("#imageofpan").attr("src","image/htA4.gif");
+		//play particular gif
+	});
+		$('#musicnote5').click(function(){
+		//var panaudio = document.getElementByID('audio1')
+		//play particular sound
+		panaudio5.play();
+		//set image #imageofpan src to image/"whatever".gif
+		$("#imageofpan").attr("src","image/htA4.gif");
+		//play particular gif
+	});
+		$('#musicnote6').click(function(){
+		//var panaudio = document.getElementByID('audio1')
+		//play particular sound
+		panaudio6.play();
+		//set image #imageofpan src to image/"whatever".gif
+		$("#imageofpan").attr("src","image/htA4.gif");
+		//play particular gif
+	});
+		$('#musicnote7').click(function(){
+		//var panaudio = document.getElementByID('audio1')
+		//play particular sound
+		panaudio7.play();
+		//set image #imageofpan src to image/"whatever".gif
+		$("#imageofpan").attr("src","image/htA4.gif");
+		//play particular gif
+	});
+		$('#musicnote8').click(function(){
+		//var panaudio = document.getElementByID('audio1')
+		//play particular sound
+		panaudio8.play();
+		//set image #imageofpan src to image/"whatever".gif
+		$("#imageofpan").attr("src","image/htA4.gif");
 		//play particular gif
 	});
 });
 
-/*
-The function playSong creates an audio element, changes the src attribute of said elemnt
-and also changes the src attribute of the main image on the page
-then plays the song file
-*/
-function playSong(note){
-	var song = document.createElement('audio');
-	//set src attribute to audio element as audio/"audioname".mp3
-	song.setAttribute('src', 'audio/'+note+".mp3");
-	//set image #panImage src to image/"audioname".gif
-	$("#panImage").attr("src","image/"+note+".gif");
-	song.play();
-	//play particular sound
-}
-
+//when the high c tenor pan link is clicked or when the bass pan is selected
+//change the image on the screen to reflect that choice
+//subsequently, show and hide the appropriate buttons
 $(document).ready(function(){
-	
 		// change the image attribute to the first image by clicking the link (tenor steel pan)
-	$(tenorImage).click(function(){
+	$("#image1").click(function(){
 		// when link tenor steel pan is clicked do the following
-		$("#panImage").attr("src","image/hightenorpan.jpg");
-		// access the image attribute and change the source to the first image
-		$('[id^=TB]').parent().hide();
-		$('[id^=HT]').parent().show();
+		$("#imageofpan").attr("src","image/hightenorpan.jpg");
+		// show and hide the appropriate buttons
+		$("#musicnote1").show(); 
+		$("#musicnote2").show(); 
+		$("#musicnote3").show(); 
+		$("#musicnote4").show();
+		$("#musicnote5").hide(); 
+		$("#musicnote6").hide(); 
+		$("#musicnote7").hide(); 
+		$("#musicnote8").hide(); 
 		//
 		});
+
 	// change the image attribute to the second image by clicking the link (bass drums)
-	$(bassImage).click(function(){
+	$("#image2").click(function(){
 		// when bass drum is clicked do the following
-		$("#panImage").attr("src","image/bassdrums.jpg");
-		// access the image attribute and change the source to the second image
-		$('[id^=HT]').parent().hide();
-		$('[id^=TB]').parent().show(); 
-	});
-
-	$(songone).click(function(){
-	// Happy Birthday Song
-	// timers were set to give the song a tru feel of how it actually sounds where 1000 = 1 second					
-		setTimeout(function(){playSong("htG4");}, 0);
-		setTimeout(function(){playSong("htG4");}, 500);
-		setTimeout(function(){playSong("htA4");}, 1000);
-		setTimeout(function(){playSong("htG4");}, 1500);
-		setTimeout(function(){playSong("htC4");}, 2000);
-		setTimeout(function(){playSong("htB4");}, 2500);
-		// pause
-		setTimeout(function(){playSong("htG4");}, 3500);
-		setTimeout(function(){playSong("htG4");}, 4000);
-		setTimeout(function(){playSong("htA4");}, 4500);
-		setTimeout(function(){playSong("htG4");}, 5000);
-		setTimeout(function(){playSong("htA4");}, 5500);
-		setTimeout(function(){playSong("htC4");}, 6000);
-		// pause
-		setTimeout(function(){playSong("htG4");}, 7000);
-		setTimeout(function(){playSong("htG4");}, 7500);
-		setTimeout(function(){playSong("htG4");}, 8000);
-		setTimeout(function(){playSong("htE4");}, 8500);
-		setTimeout(function(){playSong("htC4");}, 9000);
-		setTimeout(function(){playSong("htB4");}, 9500);
-		setTimeout(function(){playSong("htA4");}, 10000);
-		// pause
-		setTimeout(function(){playSong("htF4");}, 11000);
-		setTimeout(function(){playSong("htF4");}, 11500);
-		setTimeout(function(){playSong("htE4");}, 12000);
-		setTimeout(function(){playSong("htC4");}, 12500);
-		setTimeout(function(){playSong("htD4");}, 13000);
-		setTimeout(function(){playSong("htC4");}, 13500);
-		// pause
-	});
-
-	$(songtwo).click(function(){
-	// Happy Birthday Song
-	// timers were set to give the song a tru feel of how it actually sounds where 1000 = 1 second						
-		setTimeout(function(){playSong("htG4");}, 0);
-		setTimeout(function(){playSong("htC4");}, 500);
-		setTimeout(function(){playSong("htD4");}, 1000);
-		setTimeout(function(){playSong("htE4");}, 1500);
-		setTimeout(function(){playSong("htE4");}, 2500);
-		setTimeout(function(){playSong("htE4");}, 3500);
-		setTimeout(function(){playSong("htD4");}, 4000);
-		setTimeout(function(){playSong("htE4");}, 4500);
-		setTimeout(function(){playSong("htC4");}, 5500);
-		setTimeout(function(){playSong("htC4");}, 6500);
-		// pause
-		setTimeout(function(){playSong("htC4");}, 7500);
-		setTimeout(function(){playSong("htD4");}, 8000);
-		setTimeout(function(){playSong("htE4");}, 8500);
-		setTimeout(function(){playSong("htF4");}, 9000);
-		setTimeout(function(){playSong("htA4");}, 10000);
-		setTimeout(function(){playSong("htA4");}, 11000);
-		setTimeout(function(){playSong("htG4");}, 11500);
-		setTimeout(function(){playSong("htF4");}, 12000);
-		setTimeout(function(){playSong("htE4");}, 13000);
-		// pause
-		setTimeout(function(){playSong("htC4");}, 14000);
-		setTimeout(function(){playSong("htD4");}, 14500);
-		setTimeout(function(){playSong("htE4");}, 15000);
-		setTimeout(function(){playSong("htF4");}, 15500);
-		setTimeout(function(){playSong("htA4");}, 16500);
-		setTimeout(function(){playSong("htA4");}, 17500);
-		setTimeout(function(){playSong("htG4");}, 18000);
-		setTimeout(function(){playSong("htF4");}, 18500);
-		setTimeout(function(){playSong("htE4");}, 19500);
-		setTimeout(function(){playSong("htC4");}, 20500);
-		// pause
-		setTimeout(function(){playSong("htC4");}, 21500);
-		setTimeout(function(){playSong("htD4");}, 22000);
-		setTimeout(function(){playSong("htE4");}, 22500);
-		setTimeout(function(){playSong("htF4");}, 23500);
-		setTimeout(function(){playSong("htD4");}, 24000);
-		setTimeout(function(){playSong("htD4");}, 24500);
-		setTimeout(function(){playSong("htE4");}, 25500);
-		setTimeout(function(){playSong("htC4");}, 26000);
+		$("#imageofpan").attr("src","image/bassdrums.jpg");
+		// show and hide the appropriate buttons
+		$("#musicnote1").hide(); 
+		$("#musicnote2").hide(); 
+		$("#musicnote3").hide(); 
+		$("#musicnote4").hide(); 
+		$("#musicnote5").show(); 
+		$("#musicnote6").show(); 
+		$("#musicnote7").show(); 
+		$("#musicnote8").show();
 	});
 });
