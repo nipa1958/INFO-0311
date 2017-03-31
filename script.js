@@ -40,10 +40,14 @@ $(document).ready(function(){
 	});
 });
 
-//when the high c tenor pan link is clicked or when the bass pan is selected
-//change the image on the screen to reflect that choice
-//subsequently, show and hide the appropriate buttons
+function playSong(note){
+	var song = document.createElement('audio');
+	song.setAttribute('src', 'audio/'+note);
+	song.play();
+}
+
 $(document).ready(function(){
+	
 		// change the image attribute to the first image by clicking the link (tenor steel pan)
 	$(tenorImage).click(function(){
 		// when link tenor steel pan is clicked do the following
@@ -60,5 +64,38 @@ $(document).ready(function(){
 		// access the image attribute and change the source to the second image
 		$('[id^=HT]').parent().hide();
 		$('[id^=TB]').parent().show(); 
+	});
+	
+	$(songone).click(function(){					
+		setTimeout(function(){
+			playSong("htG5.mp3");
+		}, 0);
+		setTimeout(function(){
+			playSong("htC4.mp3");
+		}, 500);
+		setTimeout(function(){
+			playSong("htD4.mp3");
+		}, 1000);
+		setTimeout(function(){
+			playSong("htE4.mp3");
+		}, 1500);
+		setTimeout(function(){
+			playSong("htE4.mp3");
+		}, 3000);
+		setTimeout(function(){
+			playSong("htE4.mp3");
+		}, 4000);
+		setTimeout(function(){
+			playSong("htD4.mp3");
+		}, 4500);					
+		setTimeout(function(){
+			playSong("htE4.mp3");
+		}, 5000);
+		setTimeout(function(){
+			playSong("htC4.mp3");
+		}, 5500);
+		setTimeout(function(){
+			playSong("htC4.mp3");
+		}, 7000);				    
 	});
 });
